@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>harmonicanto - Agência da ONU para Refugiados</title>
+    <meta name="description" content="Agência da Onu para refugiados">
+    <meta name="keywords" content="">
+
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="images/favicon.jpeg">
+    
+</head>
+
+<body data-ng-app="donate" id="donate" data-ng-controller="mainController">
+
+    <div class="harmonicanto">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-6 orderfix-2">
+                    <div class="harmonicanto__banner">
+                        <img class="img-fluid" src="images/v10_120.png" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 orderfix-1">
+                    <div class="harmonicanto__about">
+
+                        <h1 data-ng-cloak class="harmonicanto__about--title">Ajude a Harmonicanto,
+                            a atender às necessidades das crianças.</h1>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 offset-lg-6 orderfix-3">
+                    <div data-ng-cloak class="harmonicanto__donation">
+                        <div class="harmonicanto__donation--btn">
+                            <a href="" data-ng-click="payment.goToAmounts()">Doe agora</a>
+                        </div>
+                        <ul id="amounts-begin" class="harmonicanto__donation--pills nav" role="tablist">
+                            <li class="harmonicanto__donation--pills-item nav-item" role="presentation">
+                                <a data-ng-click="payment.setRecurring(true)" class="nav-link left active"
+                                    id="pills-mensal-tab" data-toggle="pill" href="#pills-mensal" role="tab"
+                                    aria-controls="pills-mensal" aria-selected="true">Doação mensal</a>
+                            </li>
+                            <li class="harmonicanto__donation--pills-item nav-item" role="presentation">
+                                <a data-ng-click="payment.setRecurring(false)" class="nav-link right"
+                                    id="pills-unica-tab" data-toggle="pill" href="#pills-unica" role="tab"
+                                    aria-controls="pills-unica" aria-selected="false">Doação única</a>
+                            </li>
+                        </ul>
+
+                        <div class="harmonicanto__donation--pricing">
+                            <div class="tab-content">
+
+                                <!-- doação mensal -->
+                                <div class="tab-pane fade show active" id="pills-mensal" role="tabpanel"
+                                    aria-labelledby="pills-mensal-tab">
+
+                                    <div class="harmonicanto__donation--pricing-card doacao-mensal">
+                                        <div class="harmonicanto__donation--pricing-card__header">
+                                            <h1 class="harmonicanto__donation--pricing-card__header--amount"><span>R$
+                                                    {{content.amounts.monthly[0].value}},00</span>/mês</h1>
+                                            <h4 class="harmonicanto__donation--pricing-card__header--equivalence">
+                                                R${{content.amounts.monthly[1].daily}}/dia</h4>
+                                        </div>
+
+                                        <div class="harmonicanto__donation--pricing-card__body">
+                                            <p class="harmonicanto__donation--pricing-card__body--description">
+                                                {{content.amounts.monthly[0].caption}}</p>
+                                        </div>
+
+                                        <div class="harmonicanto__donation--pricing-card__footer">
+                                            <div class="harmonicanto__donation--pricing-card__footer--btn">
+                                                <a href=""
+                                                    data-ng-click="payment.setAmount(content.amounts.monthly[0].value)"><img
+                                                        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/img/icons/icon-donation.svg"
+                                                        alt="Ícone de mão estendida com coração em cima, simbolizando doação">
+                                                    Doar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="harmonicanto__donation--pricing-card doacao-mensal">
+                                        <div class="harmonicanto__donation--pricing-card__header">
+                                            <h1 class="harmonicanto__donation--pricing-card__header--amount"><span>R$
+                                                    {{content.amounts.monthly[1].value}},00</span>/mês</h1>
+                                            <h4 class="harmonicanto__donation--pricing-card__header--equivalence">
+                                                R${{content.amounts.monthly[1].daily}}/dia</h4>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__body">
+                                            <p class="harmonicanto__donation--pricing-card__body--description">
+                                                {{content.amounts.monthly[1].caption}}</p>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__footer">
+                                            <div class="harmonicanto__donation--pricing-card__footer--btn">
+                                                <a href=""
+                                                    data-ng-click="payment.setAmount(content.amounts.monthly[1].value)"><img
+                                                        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/img/icons/icon-donation.svg"
+                                                        alt="Ícone de mão estendida com coração em cima, simbolizando doação">
+                                                    Doar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="harmonicanto__donation--pricing-card doacao-mensal">
+                                        <div class="harmonicanto__donation--pricing-card__header">
+                                            <h1 class="harmonicanto__donation--pricing-card__header--amount"><span>R$
+                                                    {{content.amounts.monthly[2].value}},00</span>/mês</h1>
+                                            <h4 class="harmonicanto__donation--pricing-card__header--equivalence">
+                                                R${{content.amounts.monthly[2].daily}}/dia</h4>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__body">
+                                            <p class="harmonicanto__donation--pricing-card__body--description">
+                                                {{content.amounts.monthly[2].caption}}</p>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__footer">
+                                            <div class="harmonicanto__donation--pricing-card__footer--btn">
+                                                <a href=""
+                                                    data-ng-click="payment.setAmount(content.amounts.monthly[2].value)"><img
+                                                        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/img/icons/icon-donation.svg"
+                                                        alt="Ícone de mão estendida com coração em cima, simbolizando doação">
+                                                    Doar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="harmonicanto__donation--pricing-card doacao-mensal">
+                                        <div class="harmonicanto__donation--pricing-card__header">
+                                            <label
+                                                class="harmonicanto__donation--pricing-card__header--select"><span>R$</span>
+                                                <input type="text" data-br-other-amount
+                                                    data-ng-model="payment.otheramount" inputmode="decimal"
+                                                    placeholder="Ex: {{content.amounts.monthly[3].value}},00">
+                                                <span>/mês</span></label>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__body">
+                                            <p class="harmonicanto__donation--pricing-card__body--description">
+                                                {{content.amounts.monthly[3].caption}}</p>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__footer">
+                                            <div class="harmonicanto__donation--pricing-card__footer--btn">
+                                                <a href="" data-ng-click="payment.setAmount('')"><img
+                                                        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/img/icons/icon-donation.svg"
+                                                        alt="Ícone de mão estendida com coração em cima, simbolizando doação">
+                                                    Doar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- doação única -->
+                                <div class="tab-pane fade" id="pills-unica" role="tabpanel"
+                                    aria-labelledby="pills-unica-tab">
+                                    <div class="harmonicanto__donation--pricing-description">
+                                        <p>{{content.subtitle}}</p>
+                                        <p><strong>Ao doar mensalmente, você pode ajudar mais crianças!</strong></p>
+                                    </div>
+
+                                    <div class="harmonicanto__donation--pricing-card doacao-unica">
+                                        <div class="harmonicanto__donation--pricing-card__header">
+                                            <h1 class="harmonicanto__donation--pricing-card__header--amount">R$
+                                                40,00</h1>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__body">
+                                            <p class="harmonicanto__donation--pricing-card__body--description">
+                                                {{content.amounts.onetime[0].caption}}</p>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__footer">
+                                            <div class="harmonicanto__donation--pricing-card__footer--btn">
+                                                <a href=""
+                                                    data-ng-click="payment.setAmount(content.amounts.onetime[0].value)"><img
+                                                        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/img/icons/icon-donation.svg"
+                                                        alt="Ícone de mão estendida com coração em cima, simbolizando doação">
+                                                    Doar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="harmonicanto__donation--pricing-card doacao-unica">
+                                        <div class="harmonicanto__donation--pricing-card__header">
+                                            <h1 class="harmonicanto__donation--pricing-card__header--amount">R$
+                                                {{content.amounts.onetime[1].value}},00</h1>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__body">
+                                            <p class="harmonicanto__donation--pricing-card__body--description">
+                                                {{content.amounts.onetime[1].caption}}</p>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__footer">
+                                            <div class="harmonicanto__donation--pricing-card__footer--btn">
+                                                <a href=""
+                                                    data-ng-click="payment.setAmount(content.amounts.onetime[1].value)"><img
+                                                        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/img/icons/icon-donation.svg"
+                                                        alt="Ícone de mão estendida com coração em cima, simbolizando doação">
+                                                    Doar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="harmonicanto__donation--pricing-card doacao-unica">
+                                        <div class="harmonicanto__donation--pricing-card__header">
+                                            <h1 class="harmonicanto__donation--pricing-card__header--amount">R$
+                                                {{content.amounts.onetime[2].value}},00</h1>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__body">
+                                            <p class="harmonicanto__donation--pricing-card__body--description">
+                                                {{content.amounts.onetime[2].caption}}</p>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__footer">
+                                            <div class="harmonicanto__donation--pricing-card__footer--btn">
+                                                <a href=""
+                                                    data-ng-click="payment.setAmount(content.amounts.onetime[2].value)"><img
+                                                        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/img/icons/icon-donation.svg"
+                                                        alt="Ícone de mão estendida com coração em cima, simbolizando doação">
+                                                    Doar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="harmonicanto__donation--pricing-card doacao-unica">
+                                        <div class="harmonicanto__donation--pricing-card__header">
+                                            <label
+                                                class="harmonicanto__donation--pricing-card__header--select"><span>R$</span>
+                                                <input type="text" data-br-other-amount
+                                                    data-ng-model="payment.otheramount" inputmode="decimal"
+                                                    data-ng-pattern="/^[1-9][\d]*(?:,\d{2})?$/"
+                                                    placeholder="Ex: {{content.amounts.onetime[3].value}},00">
+                                            </label>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__body">
+                                            <p class="harmonicanto__donation--pricing-card__body--description">
+                                                {{content.amounts.onetime[3].caption}}</p>
+                                        </div>
+                                        <div class="harmonicanto__donation--pricing-card__footer">
+                                            <div class="harmonicanto__donation--pricing-card__footer--btn">
+                                                <a href="" data-ng-click="payment.setAmount('')"><img
+                                                        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/img/icons/icon-donation.svg"
+                                                        alt="Ícone de mão estendida com coração em cima, simbolizando doação">
+                                                    Doar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="amounts-end"></div>
+                    <div class="harmonicanto__form" id="form">
+                        <form name="contactForm" novalidate accept-charset="UTF-8">
+                            <input type="hidden" name="VALID" value="{{contactForm.$valid}}" />
+                            <!-- card dados pessoais -->
+                            <div class="harmonicanto__form--card">
+                                <h2 class="harmonicanto__form--card-title">Dados pessoais</h2>
+
+                                <div class="form-group">
+                                    <input data-ng-model="form.firstname" data-ng-pattern="/^[^\d]+$/" required
+                                        type="text" placeholder=" ">
+                                    <label>Nome*</label>
+                                </div>
+                                <div class="form-group">
+                                    <input data-ng-model="form.lastname" data-ng-pattern="/^[^\d]+$/" required
+                                        type="text" placeholder=" ">
+                                    <label>Sobrenome*</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input data-ng-model="form.email"
+                                        data-ng-pattern="/^(?:[\w!#$%&'*+/=?^`{|}~-]+\.)*[\w!#$%&'*+/=?^`{|}~-]+@(?:[\w-]+\.)*[\w-]+\.\w{2,}$/"
+                                        required type="text" placeholder=" ">
+                                    <label>Email*</label>
+                                </div>
+                                <div class="form-group">
+                                    <input data-ng-model="form.phone" required data-ui-mask="(99) 99999-9999"
+                                        data-model-view-value="true" type="text" autocomplete="on" placeholder=" ">
+                                    <label>Celular*</label>
+                                </div>
+
+                                <p class="error-message">*Preencha todos os campos obrigatórios.</p>
+                            </div>
+
+                        </form>
+                        <form name="donationForm" data-ng-submit="submitForm($event,donationForm)" novalidate
+                            accept-charset="UTF-8" action="https://doar.harmonicanto.org/api/harmonicantoBR/donate.html"
+                            method="post">
+                            <input type="hidden" name="successUrl"
+                                value="https://doar.harmonicanto.org/harmonicanto/sucesso.html?d={{URLEncode(pageCode)}}&r={{payment.recurring}}&a=${convertedAmount}&t=${transaction.referenceID}&u=${transaction.nativeResponse}&m={{payment.method}}&v={{version}}&s={{form.subscribe}}">
+                            <input type="hidden" name="errorUrl"
+                                value="https://doar.harmonicanto.org/harmonicanto/error.html">
+
+                            <input type="hidden" name="pfpsrc"
+                                value="{{ hasValue(leadSource) ? leadSource : (payment.method == 'Boleto' ? 'boleto online' : 'Web') }}" />
+                            <input type="hidden" name="DESCRIPTION"
+                                value="{{ hasValue(campaign) ? campaign : 'Com Os Refugiados' }}" />
+                            <input type="hidden" name="ONLINE_FORM" value="{{ pageCode }}" />
+
+                            <input type="hidden" name="tm" value="TEST" data-ng-if="testmode()" />
+                            <input type="hidden" name="ACK_TEMPLATE" value="{{payment.method}}"
+                                data-ng-if="payment.method != 'creditCard'" />
+                            <input type="hidden" name="LANGUAGE" value="pt" />
+                            <input type="hidden" name="CURRENCY" value="BRL" />
+                            <input type="hidden" name="EXPDATE" value="{{form.ccexpdate}}" />
+                            <input type="hidden" name="TAXID" value="{{form.cpf}}" />
+                            <input type="hidden" name="AMT" value="{{payment.getAmount()}}" />
+                            <input type="hidden" name="TYPE" value="{{payment.getType()}}" />
+                            <input type="hidden" name="PAYPERIOD" value="MONT" data-ng-if="payment.recurring" />
+
+                            <input type="hidden" name="X" value="{{form.validcontact}}" />
+                            <input type="hidden" name="FIRSTNAME" value="{{form.firstname}}" />
+                            <input type="hidden" name="LASTNAME" value="{{form.lastname}}" />
+                            <input type="hidden" name="EMAIL" value="{{form.email}}" />
+                            <input type="hidden" name="GENDER" value="{{form.gender}}" />
+
+                            <input data-ng-repeat="(pkey,pdata) in iterateCustomFields({
+                            'device' : mobileOrWeb() })" type="hidden" name="{{pkey}}" value="{{pdata}}" />
+
+                            <input type="hidden" name="COUNTRY" value="{{form.address.country}}" />
+                            <input type="hidden" name="PHONENUM" value="{{form.phone}}" />
+
+                            <div class="harmonicanto__form--agreements">
+                                <div class="harmonicanto__form--agreements-checkbox">
+                                    <input data-ng-model="form.subscribe" type="checkbox" name="ACCEPT_EMAILS"
+                                        id="newsletter">
+                                    <label for="newsletter">Quero receber as comunicações da harmonicanto</label>
+                                </div>
+                                <div class="harmonicanto__form--agreements-checkbox">
+                                    <input type="checkbox" id="acceptDonorPolicy">
+                                    <label for="acceptDonorPolicy">Declaro que li e aceito a</label> <span
+                                        style="padding-left: 38px; color:#666666"><a href="{{donorPolicyUrl}}"
+                                            target="_blank">Política de Doações</a> e a
+                                        <a href="{{policyUrl}}" target="_blank">Política de Privacidade</a></span>
+                                </div>
+                            </div>
+
+                            <input class="harmonicanto__form--btn" data-ng-disabled="posting" type="submit"
+                                value="{{posting ? 'Processando…' : 'Doe agora'}}">
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script
+        src="https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/js/vendors.min.js"></script>
+    <script type="text/javascript">
+
+        var pageContent = {
+            title: "Precisamos de você para continuar transformando a vida de crianças e jovens! Abrace uma criança!.",
+            subtitle: "Levamos a musicalização à crianças e adolescentes em situação de vulnerabilidade na Comunidade de Cantagalo, Rio de Janeiro, além de oferecer uma gama de atividades culturais, ecológicas e apoio pedagógico para possibilitar o seu desenvolvimento integral, e com isso, promover a equidade social.",
+            banner: "https://6d822aea659b49ec1106-651bbca9f5835752fa28f921d9802238.ssl.cf1.rackcdn.com/v3/content/donate.jpg",
+            text: ["Neste momento, quase 80 milhões de pessoas foram forçadas a abandonar suas casas devido a conflitos armados, violência e violação dos direitos humanos.",
+                "O harmonicanto, está presente em 135 países oferecendo assistência e proteção aos refugiados que deixaram tudo para trás para salvar suas vidas, mas não conseguiríamos fazer isso sem a ajuda de pessoas como você."],
+            amounts: {
+                onetime: [
+                    { value: 80, caption: "Você doa materiais escolares para que crianças possam ir à escola no Morro do Cantagalo." },
+                    { value: 250, caption: "Você doa materiais escolares para que crianças possam ir à escola no Morro do Cantagalo." },
+                    { value: 600, caption: "Você doa materiais escolares para que crianças possam ir à escola no Morro do Cantagalo." },
+                    { value: 10, caption: "Você doa materiais escolares para que crianças possam ir à escola no Morro do Cantagalo." }
+                ],
+                monthly: [
+                    { value: 40, daily: '1,33', caption: "Você doa materiais escolares para que crianças possam ir à escola no Morro do Cantagalo." },
+                    { value: 60, daily: '2', caption: "Você doa materiais escolares para que crianças possam ir à escola no Morro do Cantagalo." },
+                    { value: 150, daily: '5', caption: "Você doa materiais escolares para que crianças possam ir à escola no Morro do Cantagalo." },
+                    { value: 10, caption: "Você doa materiais escolares para que crianças possam ir à escola no Morro do Cantagalo." }
+                ]
+            }
+        }
+
+        var gdVersion = 'donate-v2';
+        var gdPageCode = 'BRPT00GD00 General/V2';
+        var gdCampaign = 'Com os Refugiados';
+
+    // </script>
+
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
